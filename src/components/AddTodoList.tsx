@@ -26,9 +26,10 @@ export default function AddList() {
       {showInputBox ? (
         <input
           type='text'
-          className='p-2 m-2 rounded font-semibold'
+          className='px-1 m-2 rounded font-semibold leading-loose self-start'
           autoFocus
           placeholder='List name...'
+          onBlur={() => setShowInputBox(false)}
           onKeyDown={addNewList}
         />
       ) : (
