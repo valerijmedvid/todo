@@ -14,7 +14,7 @@ export default function AddList() {
       dispatch(
         addList({
           title: event.currentTarget.value,
-          todos: [],
+          tasks: [],
         }),
       )
       setShowInputBox(false)
@@ -22,7 +22,7 @@ export default function AddList() {
   }
 
   return (
-    <>
+    <div>
       {showInputBox ? (
         <input
           type='text'
@@ -40,6 +40,6 @@ export default function AddList() {
           Add new list...
         </p>
       )}
-    </>
+    </div>
   )
 }

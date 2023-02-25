@@ -1,11 +1,11 @@
-export type Todo = {
+export type Task = {
   title: string
   completed: boolean
 }
 
 export type TodoList = {
   title: string
-  todos: Todo[]
+  tasks: Task[]
 }
 
 export type TodosState = {
