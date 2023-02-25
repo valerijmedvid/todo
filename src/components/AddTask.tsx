@@ -7,7 +7,7 @@ import type { KeyboardEvent } from 'react'
 type AddTaskProps = {
   todoListIndex: number
 }
-export function AddTask(props: AddTaskProps) {
+export default function AddTask(props: AddTaskProps) {
   const [showInput, setShowInput] = useState(false)
   const dispatch = useDispatch()
 

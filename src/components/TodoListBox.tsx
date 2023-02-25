@@ -1,5 +1,5 @@
-import { TaskBox } from './TaskBox'
-import { AddTask } from './AddTask'
+import TaskBox from './TaskBox'
+import AddTask from './AddTask'
 
 import type { TodoList } from '../types/Todos'
 
@@ -8,7 +8,7 @@ type TodoListBoxProps = {
   todoListIndex: number
 }
 
-export function TodoListBox(props: TodoListBoxProps) {
+export default function TodoListBox(props: TodoListBoxProps) {
   return (
     <div className='w-32 m-2 rounded bg-gray-50 self-start'>
       <p className='ml-1 font-bold'>{props.todoList.title}</p>
