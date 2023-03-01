@@ -11,7 +11,7 @@ export default function AddTask(props: AddTaskProps) {
   const [showInput, setShowInput] = useState(false)
   const dispatch = useDispatch()
 
-  function addNewTask(event: KeyboardEvent<HTMLInputElement>): void {
+  function handleKeyPress(event: KeyboardEvent<HTMLInputElement>): void {
     if (event.key === 'Enter') {
       dispatch(
         addTask({
@@ -30,7 +30,7 @@ export default function AddTask(props: AddTaskProps) {
           autoFocus
           className='w-32'
           onBlur={() => setShowInput(false)}
-          onKeyDown={addNewTask}
+          onKeyDown={handleKeyPress}
         />
       ) : (
         <div

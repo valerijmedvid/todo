@@ -9,7 +9,7 @@ export default function AddList() {
 
   const dispatch = useDispatch()
 
-  function addNewList(event: KeyboardEvent<HTMLInputElement>): void {
+  function handleKeyPress(event: KeyboardEvent<HTMLInputElement>): void {
     if (event.key === 'Enter') {
       dispatch(
         addList({
@@ -30,7 +30,7 @@ export default function AddList() {
           autoFocus
           placeholder='List name...'
           onBlur={() => setShowInputBox(false)}
-          onKeyDown={addNewList}
+          onKeyDown={handleKeyPress}
         />
       ) : (
         <p
