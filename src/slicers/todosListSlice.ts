@@ -2,7 +2,20 @@ import { createSlice } from '@reduxjs/toolkit'
 
 import type { PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from '../store'
-import type { Task, TodoList, TodosState } from '../types/Todos'
+
+export type Task = {
+  title: string
+  completed: boolean
+}
+
+export type TodoList = {
+  title: string
+  tasks: Task[]
+}
+
+export type TodosState = {
+  lists: TodoList[]
+}
 
 const initialState: TodosState = {
   lists: [

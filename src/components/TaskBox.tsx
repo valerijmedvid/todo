@@ -1,4 +1,4 @@
-import type { Task } from '../types/Todos'
+import type { Task } from '../slicers/todosListSlice'
 
 type TaskBoxProps = {
   task: Task

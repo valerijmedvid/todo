@@ -1,7 +1,7 @@
 import TaskBox from './TaskBox'
 import AddTask from './AddTask'
 
-import type { TodoList } from '../types/Todos'
+import type { TodoList } from '../slicers/todosListSlice'
 
 type TodoListBoxProps = {
   todoList: TodoList
