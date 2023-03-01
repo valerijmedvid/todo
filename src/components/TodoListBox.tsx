@@ -14,9 +14,9 @@ export default function TodoListBox(props: TodoListBoxProps) {
       <p className='ml-1 font-bold'>{props.todoList.title}</p>
 
       <div className='flex flex-col ml-3'>
-        {props.todoList.tasks.map((task, index) => {
-          return <TaskBox task={task} key={index} />
-        })}
+        {props.todoList.tasks.map((task, index) => (
+          <TaskBox task={task} key={index} />
+        ))}
       </div>
 
       <AddTask todoListIndex={props.todoListIndex} />

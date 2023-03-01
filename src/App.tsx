@@ -10,11 +10,9 @@ export default function App() {
   return (
     <div className='flex flex-row items-stretch'>
       <GithubCorner />
-      <>
-        {todos.map((list, index) => {
-          return <TodoListBox todoList={list} todoListIndex={index} key={index} />
-        })}
-      </>
+      {todos.map((list, index) => (
+        <TodoListBox todoList={list} todoListIndex={index} key={index} />
+      ))}
       <AddTodoList />
     </div>
   )
