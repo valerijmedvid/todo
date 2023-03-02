@@ -39,8 +39,14 @@ type AddTask = {
   task: Task
   index: number
 }
+
 type TaskState = {
   completed: boolean
+  taskIndex: number
+  todoListIndex: number
+}
+
+type RemoveTask = {
   taskIndex: number
   todoListIndex: number
 }
@@ -59,10 +65,13 @@ export const todosListSlice = createSlice({
       state.lists[action.payload.todoListIndex].tasks[action.payload.taskIndex].completed =
         action.payload.completed
     },
+    removeTask: (state, action: PayloadAction<RemoveTask>) => {
+      state.lists[action.payload.todoListIndex].tasks.splice(action.payload.taskIndex, 1)
+    },
   },
 })
 
-export const { addList, addTask, changeTaskState } = todosListSlice.actions
+export const { addList, addTask, changeTaskState, removeTask } = todosListSlice.actions
 
 export const selectTodosList = (state: RootState) => state.todosList.lists
 

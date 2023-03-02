@@ -1,7 +1,7 @@
 import TaskBox from './TaskBox'
 import AddTask from './AddTask'
 import { useDispatch } from 'react-redux'
-import { changeTaskState } from '../slicers/todosListSlice'
+import { changeTaskState, removeTask } from '../slicers/todosListSlice'
 
 import type { TodoList } from '../slicers/todosListSlice'
 
@@ -23,6 +23,15 @@ export default function TodoListBox(props: TodoListBoxProps) {
     )
   }
 
+  function handleRemoveTask(index: number) {
+    dispatch(
+      removeTask({
+        taskIndex: index,
+        todoListIndex: props.todoListIndex,
+      }),
+    )
+  }
+
   return (
     <div className='todo-list-box'>
       <p className='ml-1 font-bold'>{props.todoList.title}</p>
@@ -32,6 +41,7 @@ export default function TodoListBox(props: TodoListBoxProps) {
           <TaskBox
             task={task}
             handleTaskState={(checked) => handleTaskState(index, checked)}
+            handleRemoveTask={() => handleRemoveTask(index)}
             key={index}
           />
         ))}
