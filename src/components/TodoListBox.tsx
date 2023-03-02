@@ -1,5 +1,7 @@
 import TaskBox from './TaskBox'
 import AddTask from './AddTask'
+import { useDispatch } from 'react-redux'
+import { changeTaskState } from '../slicers/todosListSlice'
 
 import type { TodoList } from '../slicers/todosListSlice'
 
@@ -9,13 +11,29 @@ type TodoListBoxProps = {
 }
 
 export default function TodoListBox(props: TodoListBoxProps) {
+  const dispatch = useDispatch()
+
+  function handleTaskState(index: number, checked: boolean) {
+    dispatch(
+      changeTaskState({
+        completed: checked,
+        taskIndex: index,
+        todoListIndex: props.todoListIndex,
+      }),
+    )
+  }
+
   return (
-    <div className='w-32 m-2 rounded bg-gray-50 self-start'>
+    <div className='w-44 m-2 rounded bg-gray-50 self-start'>
       <p className='ml-1 font-bold'>{props.todoList.title}</p>
 
-      <div className='flex flex-col ml-3'>
+      <div className='flex flex-col'>
         {props.todoList.tasks.map((task, index) => (
-          <TaskBox task={task} key={index} />
+          <TaskBox
+            task={task}
+            handleTaskState={(checked) => handleTaskState(index, checked)}
+            key={index}
+          />
         ))}
       </div>
 

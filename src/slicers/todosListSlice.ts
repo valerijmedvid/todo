@@ -28,7 +28,7 @@ const initialState: TodosState = {
         },
         {
           title: 'Cleaning',
-          completed: false,
+          completed: true,
         },
       ],
     },
@@ -38,6 +38,11 @@ const initialState: TodosState = {
 type AddTask = {
   task: Task
   index: number
+}
+type TaskState = {
+  completed: boolean
+  taskIndex: number
+  todoListIndex: number
 }
 
 export const todosListSlice = createSlice({
@@ -50,10 +55,14 @@ export const todosListSlice = createSlice({
     addTask: (state, action: PayloadAction<AddTask>) => {
       state.lists[action.payload.index].tasks.push(action.payload.task)
     },
+    changeTaskState: (state, action: PayloadAction<TaskState>) => {
+      state.lists[action.payload.todoListIndex].tasks[action.payload.taskIndex].completed =
+        action.payload.completed
+    },
   },
 })
 
-export const { addList, addTask } = todosListSlice.actions
+export const { addList, addTask, changeTaskState } = todosListSlice.actions
 
 export const selectTodosList = (state: RootState) => state.todosList.lists
 
