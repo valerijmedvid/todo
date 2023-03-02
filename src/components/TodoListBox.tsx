@@ -24,7 +24,7 @@ export default function TodoListBox(props: TodoListBoxProps) {
   }
 
   return (
-    <div className='w-44 m-2 rounded bg-gray-50 self-start'>
+    <div className='todo-list-box'>
       <p className='ml-1 font-bold'>{props.todoList.title}</p>
 
       <div className='flex flex-col'>

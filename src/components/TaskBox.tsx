@@ -16,7 +16,7 @@ export default function TaskBox(props: TaskBoxProps) {
   }
 
   return (
-    <div className='mx-1 px-1 mt-1 border rounded border-dashed border-neutral-600 border-opacity-0 hover:border-opacity-100'>
+    <div className='task-box'>
       <label className={checked ? 'line-through decoration-2 cursor-pointer' : 'cursor-pointer'}>
         <input type='checkbox' className='mr-1 ' checked={checked} onChange={handleChange} />
         {props.task.title}
