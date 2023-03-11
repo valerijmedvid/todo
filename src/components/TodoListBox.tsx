@@ -42,7 +42,7 @@ export default function TodoListBox(props: TodoListBoxProps) {
             task={task}
             handleTaskState={(checked) => handleTaskState(index, checked)}
             handleRemoveTask={() => handleRemoveTask(index)}
-            key={index}
+            key={index + task.title}
           />
         ))}
       </div>

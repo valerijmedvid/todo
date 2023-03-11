@@ -11,7 +11,7 @@ export default function App() {
     <div className='flex flex-row items-stretch'>
       <GithubCorner />
       {todos.map((list, index) => (
-        <TodoListBox todoList={list} todoListIndex={index} key={index} />
+        <TodoListBox todoList={list} todoListIndex={index} key={index + list.title} />
       ))}
       <AddTodoList />
     </div>
